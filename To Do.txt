@@ -1,0 +1,31 @@
+# Group Do: Designing your MVP
+
+## Instructions
+* With your group, answer each of the following questions:
+  1. Who is your target audience?
+    User: anyone who gets a parking ticket.
+
+  2. What is the problem that the product will address?
+    To help user manage and avoid additional fees associated with lack of 
+    payment or payment management error.
+
+  3. What is the primary goal of the product?
+    Streamlining the payment and ticket management process and allow for calendar 
+    support, notifications and reminders.
+
+  4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
+  1. As a user, I want to keep track of my parking ticket due dates 
+     so I don't forget and have excessive fees
+  2. As a user, I want to assure myself I get payment to the right location.
+     with one click.
+  3.    
+  
+
+  TO DO:
+
+  1) CSS/HTML  - completed by Dec 22, 2018
+  2) API #1 - 
+  3) API #2 - 
+  4) New API - 
+  3) AJAX - 
+
