@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Citation Project</title>
+    <title>Citation Station</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    
@@ -16,31 +16,42 @@
   </head>
   <body>
     <div class="container">
-    <div class="jumbotron jumbotron-fluid" style='background-color:#A05F5F'>
+    <div class="jumbotron jumbotron-fluid" style='background-color:rgb(79, 69, 167); color:white; text-align:center;'>
   <div class="container">
     <h1 class="display-4">Citation Station</h1>
-    <p class="lead">Explanation of what it does</p>
+    <p class="lead">Welcome to our page! <br>Here you can input your citations, pay citations, or set reminders for yourself to pay them later.</p>
   </div>
 </div>
-      <h1>Ticket Information<br><small>Refer to your parking ticket</small></h1>
+      <h1>Search Criteria<br><small>By Citation Number or License Plate and Date of citation issue.</small></h1>
       <div class="jumbotron" >
-      
-        <h3>Ticket Number</h3>
         <form id="issueInputForm">
+        <h3>Search by Citation Number</h3>
+        
           <div class="form-group">
             <label for="citationNumberInput">Citation Number</label>
             <input type="text" class="form-control" id="citationNumberInput" placeholder="Citation Number here">
           </div>
           <div class="form-group">
-            <label for="isueDateInput">Date of Citation</label><br>
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="Enter Your Name Here">
+          </div>
+          <button type="submit" class="btn btn-primary" style='background-color:rgb(79, 69, 167);'>Submit</button>
+        
+          <h3>Search by Date and License Plate Number</h3>
+          <div class="form-group">
+            <label for="issueDateInput">Date of Citation</label><br>
             <input type="Date" class="form-date" id="issueDateInput" placeholder="Citation Number here">
             </select> 
           </div>
           <div class="form-group">
-            <label for="citationNumberInput">Name</label>
-            <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Your Name Here">
+            <label for="licensePlateInput">License Plate Number</label>
+            <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Your License Plate Number Here">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="Enter Your Name Here">
+          </div>
+          <button type="submit" class="btn btn-primary" style='background-color:rgb(79, 69, 167);'>Submit</button>
         </form>
       </div>
       <div class="row">
