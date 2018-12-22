@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Citation Station</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="assets/coolstuff.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid" id="jumbo">
+            <div class="container">
+                <h1 class="display-4">Citation Station</h1>
+                <p class="lead">Welcome to our page! <br>Here you can input your citations, pay citations, or set
+                    reminders for
+                    yourself to pay them later.</p>
+            </div>
+        </div>
+
+        <nav>
+            <li><a href="FFKD2.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+        </nav>
+
+        <h1>Search Criteria<br><small>By Citation Number or License Plate and Date of Citation Issued.</small></h1>
+        <div class="jumbotron">
+            <form id="issueInputForm">
+                <h3>Search by Citation Number</h3>
+
+                <div class="form-group">
+                    <label for="citationNumberInput">Citation Number</label>
+                    <input type="text" class="form-control" id="citationNumberInput" placeholder="Citation Number here">
+                </div>
+                <div class="form-group">
+                   
+                    <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
+                    <h3>Search by State and License Plate Number</h3>
+                    <div class="form-group">
+                        <label for="issueDateInput">State of License</label><br>
+                        <input type="text" class="form-control" id="issueStateInput" placeholder="Enter State Here">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="licensePlateInput">License Plate Number</label>
+                        <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Your License Plate Number Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
+                </form>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table" id='dataList'>
+                    <thead>
+                        <tr>
+                            <th><i>Name</i></th>
+                            <th><i>Citation #</i></th>
+                            <th><i>Date of Citation</i></th>
+                            <th><i>License Plate</i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        </tr>
+                    </tbody>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- java script -->
+    <script src="assets/GroupProj.js"></script>
+</body>
+
+</html>
