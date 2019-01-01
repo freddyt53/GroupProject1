@@ -31,7 +31,7 @@ $('#submitCitation1').on("click", function (event) {
 
   //console.logs
   console.log(newCitation1.citationNumber);
- 
+
 
 
   // Clears all of the text-boxes
@@ -48,7 +48,7 @@ $('#submitCitation2').on("click", function (event) {
   event.preventDefault();
 
   //user input
-  var stateOfCitation = $("#issueStateInput").val().trim();
+  var stateOfCitation = $("#stateOfCitation").val().trim();
   var licensePlate = $("#licenseInput").val().trim();
 
   //local var to hold the user information
@@ -66,7 +66,7 @@ $('#submitCitation2').on("click", function (event) {
 
 
   // Clears all of the text-boxes
-  $("#issueStateInput").val("");
+  $("#stateOfCitation").val("");
   $("#licenseInput").val("");
 
   //keeps from refreshing page
@@ -83,9 +83,9 @@ groupData.ref().on("child_added", function (childSnapshot) {
   lPlate = data.licensePlate;
 
   //console.logs
-  console.log(cNumber);
-  console.log(stateCitation);
-  console.log(lPlate);
+  // console.log(cNumber);
+  // console.log(stateCitation);
+  // console.log(lPlate);
 
   //calls on correct rows to display info
   var newRow = $("<tr>").append(
@@ -101,17 +101,50 @@ groupData.ref().on("child_added", function (childSnapshot) {
 
 
 
+var data = "";
 
 
+fetch('https://data.lacity.org/resource/8yfh-4gug.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    //console.log(JSON.stringify(myJson));
+    data = myJson
+  });
+  // function removeZeros (str) {
+  //   str.split("")
+  // }
 
-// fetch('https://data.lacity.org/resource/8yfh-4gug.json')
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(myJson) {
-//     console.log(JSON.stringify(myJson));
-//   });
+  $('#submitCitation3').on("click", function (event) {
+    var input = $("#searchInput").val().trim();
+    var ticketDetails = $("#ticketInfo")
+    event.preventDefault();
+    console.log(data);
 
+    
+    for (var i = 0; i < data.length; i++) {
+      var matchFound = false;
+      if(input === data[i].ticket_number) {
+        matchFound = true;
+        console.log(data[i]);
+        var newRow = $("<tr>").append(
+          $("<td>").text(data[i].ticket_number),
+          $("<td>").text(data[i].location),
+          $("<td>").text(data[i].make),
+          $("<td>").text("$" + data[i].fine_amount),
+          $("<td>").text(data[i].violation_description),
+        );
+        $('#ticketInfo').append(newRow);
+      }
+     }
+    //  if(matchFound == false) {
+    //   alert("Ticket not found");
+    
+    // }
+    
+  });
+  
 
 // fetch('https://data.lacity.org/resource/8yfh-4gug.json')
 //   .then(function (response) {
@@ -128,52 +161,52 @@ groupData.ref().on("child_added", function (childSnapshot) {
 //     //console.log(JSON.stringify(myJson));
 //   //});
 
-  // var violaion = ["location", "issueDate", "issueTime", "ticketNumber", "violationDescription"]
+// var violaion = ["location", "issueDate", "issueTime", "ticketNumber", "violationDescription"]
 
 
 
-  // function notifyMe() {
-  //   if(!("Notification" in window)) {
-  //     alert("This browser does not support system notifications");
-  //   }
-  //   else if (Notification.permission === "granted") {
-  //     notifyMe();
-  //   }
-  //   else if (Notification.permission !== "denied") {
-  //     Notification.requestPermission(function(permission) {
-  //       if (permission === "granted") {
-  //         notifyMe();
-  //       }
-  //     });
-  //   }
-  //   function notify() {
-  //     var notification = new Notification("Hello there", {
-  //       icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
-  //       body: "Hey there this is a test",
-  //     });
-  //     notification.onclick = function () {
-  //       window.open("http://carnes.cc");
-  //     };
-  //     setTimeout(notification.close.bind(notification), 7000);
-  //   }
-  //   console.log(notify);
-  // }
+// function notifyMe() {
+//   if(!("Notification" in window)) {
+//     alert("This browser does not support system notifications");
+//   }
+//   else if (Notification.permission === "granted") {
+//     notifyMe();
+//   }
+//   else if (Notification.permission !== "denied") {
+//     Notification.requestPermission(function(permission) {
+//       if (permission === "granted") {
+//         notifyMe();
+//       }
+//     });
+//   }
+//   function notify() {
+//     var notification = new Notification("Hello there", {
+//       icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
+//       body: "Hey there this is a test",
+//     });
+//     notification.onclick = function () {
+//       window.open("http://carnes.cc");
+//     };
+//     setTimeout(notification.close.bind(notification), 7000);
+//   }
+//   console.log(notify);
+// }
 
 
 
 
-  //for the News page
+//for the News page
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+  coll[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.maxHeight){
+    if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    }
   });
 }
