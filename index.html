@@ -27,8 +27,8 @@
 
 <body>
 
-    <a href="index.html">
-        <div class="container" href="index.html">
+    
+        <div class="container" >
             <div class="jumbotron jumbotron-fluid" id="jumbo">
                 <div class="container">
                     <h1 class="display-4">Citation Station</h1>
@@ -37,7 +37,7 @@
                         yourself to pay them later.</p>
                 </div>
             </div>
-    </a>
+    
     <nav>
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
@@ -45,29 +45,32 @@
         <li><a href="about.html">About</a></li>
     </nav>
 
-    <h1>Search Criteria<br><small>By Citation Number or License Plate and Date of Citation Issued.</small></h1>
-    <div class="jumbotron">
+    <h1 style="color:black;">Search Criteria<br>
+        <!-- <small>By Citation Number or License Plate and Date of Citation Issued.</small> -->
+    </h1>
+    <div class="jumbotron transparentB">
         <form id="issueInputForm">
-            <h3>Search by Citation Number</h3>
+            
+                <h3>Search by Citation Number</h3>
 
-            <div class="form-group">
-                <label for="citationNumberInput">Citation Number</label>
-                <input type="text" class="form-control" id="citationNumberInput" placeholder="Citation Number here">
-            </div>
-            <div class="form-group">
-
-                <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
-                <h3>Search by State and License Plate Number</h3>
                 <div class="form-group">
-                    <label for="issueDateInput">State of License</label><br>
-                    <input type="text" class="form-control" id="issueStateInput" placeholder="Enter State Here">
-                    </select>
+                    <label for="citationNumberInput">Citation Number</label>
+                    <input type="text" class="form-control" id="citationNumberInput" placeholder="Citation Number here">
                 </div>
                 <div class="form-group">
-                    <label for="licensePlateInput">License Plate Number</label>
-                    <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Your License Plate Number Here">
-                </div>
-                <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
+
+                    <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
+                    <h3>Search by State and License Plate Number</h3>
+                    <div class="form-group">
+                        <label for="issueDateInput">State of License (Two Letter Code)</label><br>
+                        <input type="text" class="form-control" id="issueStateInput" placeholder="Enter State Here">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="licensePlateInput">License Plate Number</label>
+                        <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter Your License Plate Number Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitCitation" style='background-color:rgb(79, 69, 167);'>Submit</button>
         </form>
     </div>
     <div class="row">
@@ -89,6 +92,7 @@
     </div>
     </div>
     </div>
+  
     <!-- java script -->
     <script src="assets/GroupProj.js"></script>
 </body>
