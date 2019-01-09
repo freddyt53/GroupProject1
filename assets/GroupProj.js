@@ -113,7 +113,7 @@ $('#submitCitation3').on("click", function (event) {
 
 
 //news API
-//  var newsData = "";
+var newsData = "";
 
 
 // // //for the News page
