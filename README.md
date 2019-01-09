@@ -5,3 +5,4 @@ Our website is intended to alleviate the stressors that come with getting a park
 
 The conception of this app stemmed from one of our team member’s collection of parking citations and personal experience with how difficult it can be to manage multiple pending tickets.  Through a discussion of shared experiences we identified the potential benefit that an app like ours could present.  
 
+challenges - pulling more recent citations
