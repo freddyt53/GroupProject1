@@ -16,7 +16,7 @@
     color:white;
 }
 
-#dataList{
+#dataList, #ticketInfo{
     margin-top:20px;
     padding:20px;
     border:double;
@@ -149,7 +149,7 @@ nav {
     text-align: center;
   }
 
-  #submitCitation {
+  #submitCitation, #submitCitation3 {
     background-color: #f4511e;
     border: none;
     color: white;
@@ -164,6 +164,10 @@ nav {
   #submitCitation:hover {
       opacity: 0.6
   }
+
+  #submitCitation3:hover {
+    opacity: 0.6
+}
 
   body {
       background-image:url("https://wallpaperaccess.com/full/147526.jpg");
