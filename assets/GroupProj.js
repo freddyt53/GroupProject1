@@ -13,65 +13,36 @@ firebase.initializeApp(config);
 var groupData = firebase.database();
 
 
-//first submit button
-$('#submitCitation1').on("click", function (event) {
+//add citation button
+$('#submitCitation').on("click", function (event) {
   event.preventDefault();
 
   //user input
   var citationNumber = $("#citationNumberInput").val().trim();
-
-
-  //local var to hold the user information
-  var newCitation1 = {
-    citationNumber: citationNumber,
-  }
-
-  //pushes data to database
-  groupData.ref().push(newCitation1);
-
-  //console.logs
-  console.log(newCitation1.citationNumber);
- 
-
-
-  // Clears all of the text-boxes
-  $("#citationNumberInput").val("");
-
-  //keeps from refreshing page
-  return false;
-
-});
-
-
-//second submit button function
-$('#submitCitation2').on("click", function (event) {
-  event.preventDefault();
-
-  //user input
-  var stateOfCitation = $("#issueStateInput").val().trim();
+  var stateOfCitation = $("#stateOfCitation").val().trim();
   var licensePlate = $("#licenseInput").val().trim();
 
+  console.log(citationNumber, stateOfCitation, licensePlate);
+
   //local var to hold the user information
-  var newCitation2 = {
+  var newCitation = {
+    citationNumber: citationNumber,
     stateOfCitation: stateOfCitation,
     licensePlate: licensePlate,
   }
-
   //pushes data to database
-  groupData.ref().push(newCitation2);
-
-  //console.logs
-  console.log(newCitation2.stateOfCitation);
-  console.log(newCitation2.licensePlate);
-
+  groupData.ref().push(newCitation);
 
   // Clears all of the text-boxes
-  $("#issueStateInput").val("");
+  $("#citationNumberInput").val("");
+  $("#stateOfCitation").val("");
   $("#licenseInput").val("");
 
   //keeps from refreshing page
   return false;
+
 });
+
 
 //creates firebase event to add citations
 groupData.ref().on("child_added", function (childSnapshot) {
@@ -83,9 +54,9 @@ groupData.ref().on("child_added", function (childSnapshot) {
   lPlate = data.licensePlate;
 
   //console.logs
-  console.log(cNumber);
-  console.log(stateCitation);
-  console.log(lPlate);
+  // console.log(cNumber);
+  // console.log(stateCitation);
+  // console.log(lPlate);
 
   //calls on correct rows to display info
   var newRow = $("<tr>").append(
@@ -100,80 +71,106 @@ groupData.ref().on("child_added", function (childSnapshot) {
 
 
 
+//la city JSON info
+var data = "";
 
-
-
-
-// fetch('https://data.lacity.org/resource/8yfh-4gug.json')
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(myJson) {
-//     console.log(JSON.stringify(myJson));
-//   });
-
-
-// fetch('https://data.lacity.org/resource/8yfh-4gug.json')
-//   .then(function (response) {
-//     return response.json();
-//   });
-//   //.then(function (myJson) {
-//     //response.data.forEach(function (element) {
-//      //newDiv = $("<div>");
-//       //new.addClass("info-container");
-//       //newDiv.append("<p>Citation Number " + element.ticket_number + "</p>");
-//       //$("#datalist").append(newDiv);
-//     //});
-
-//     //console.log(JSON.stringify(myJson));
-//   //});
-
-  // var violaion = ["location", "issueDate", "issueTime", "ticketNumber", "violationDescription"]
-
-
-
-  // function notifyMe() {
-  //   if(!("Notification" in window)) {
-  //     alert("This browser does not support system notifications");
-  //   }
-  //   else if (Notification.permission === "granted") {
-  //     notifyMe();
-  //   }
-  //   else if (Notification.permission !== "denied") {
-  //     Notification.requestPermission(function(permission) {
-  //       if (permission === "granted") {
-  //         notifyMe();
-  //       }
-  //     });
-  //   }
-  //   function notify() {
-  //     var notification = new Notification("Hello there", {
-  //       icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
-  //       body: "Hey there this is a test",
-  //     });
-  //     notification.onclick = function () {
-  //       window.open("http://carnes.cc");
-  //     };
-  //     setTimeout(notification.close.bind(notification), 7000);
-  //   }
-  //   console.log(notify);
-  // }
-
-
-
-
-  //for the News page
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
+//la city request
+fetch('https://data.lacity.org/resource/8yfh-4gug.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    //console.log(JSON.stringify(myJson));
+    data = myJson
   });
-}
+
+//button for JSON search
+$('#submitCitation3').on("click", function (event) {
+  var input = $("#searchInput").val().trim();
+  var ticketDetails = $("#ticketInfo")
+  event.preventDefault();
+  $("#searchInput").val("");
+  console.log(data);
+
+
+  for (var i = 0; i < data.length; i++) {
+    var matchFound = false;
+    if (input === data[i].ticket_number) {
+      matchFound == true;
+      console.log(data[i]);
+      var newRow = $("<tr>").append(
+        $("<td>").text(data[i].ticket_number),
+        $("<td>").text(data[i].location),
+        $("<td>").text(data[i].make),
+        $("<td>").text("$" + data[i].fine_amount),
+        $("<td>").text(data[i].violation_description),
+      );
+      $('#ticketInfo').append(newRow);
+    }
+  }
+});
+
+
+
+// //news API
+ var newsData = "";
+
+
+// //for the News page
+ var newsApiKey = "c9952e074181464ea384595ef02c08bd";
+
+ var url = 'https://newsapi.org/v2/everything?' +
+   'q=traffic+laws&' +
+   'from=2019-01-08&' +
+   'sortBy=popularity&' +
+   'apiKey=c9952e074181464ea384595ef02c08bd';
+
+ var req = new Request(url);
+
+ fetch(req)
+   .then(function (response) {
+     console.log(response.json());
+     
+    })
+    .then(function (newsJson) {
+    //.then(function (newsJson) {
+     //console.log(JSON.stringify(myJson));
+     newsData = newsJson
+      console.log(hello);
+     //.then(function (response) {
+      newsData.forEach(function (element) {
+        console.log(newsJson)
+        newDiv = $("<div>");
+        newDiv.addClass("individual-news-container");
+        newDiv.append("<p>Rating: " + element.content + "</p>");
+        var newImage = $("<img src = '" + element.urlToImage + "'>");
+        newImage.addClass("news-image");
+        newImage.attr("state", "still");
+        newImage.attr("still-data", element.images.fixed_height_still.url);
+        newImage.attr("animated-data", element.images.fixed_height.url);
+        newDiv.append(newImage);
+        $("#newsInfo").append(newDiv);
+      });
+    });
+  // });
+
+   
+
+
+
+
+
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
+
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function () {
+//     this.classList.toggle("active");
+//     var content = this.nextElementSibling;
+//     if (content.style.maxHeight) {
+//       content.style.maxHeight = null;
+//     } else {
+//       content.style.maxHeight = content.scrollHeight + "px";
+//     }
+//   });
+// }
