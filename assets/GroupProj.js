@@ -112,47 +112,47 @@ $('#submitCitation3').on("click", function (event) {
 
 
 
-// //news API
- var newsData = "";
+//news API
+//  var newsData = "";
 
 
-// //for the News page
- var newsApiKey = "c9952e074181464ea384595ef02c08bd";
+// // //for the News page
+//  var newsApiKey = "c9952e074181464ea384595ef02c08bd";
 
- var url = 'https://newsapi.org/v2/everything?' +
-   'q=traffic+laws&' +
-   'from=2019-01-08&' +
-   'sortBy=popularity&' +
-   'apiKey=c9952e074181464ea384595ef02c08bd';
+//  var url = 'https://newsapi.org/v2/everything?' +
+//    'q=traffic+laws&' +
+//    'from=2019-01-08&' +
+//    'sortBy=popularity&' +
+//    'apiKey=c9952e074181464ea384595ef02c08bd';
 
- var req = new Request(url);
+//  var req = new Request(url);
 
- fetch(req)
-   .then(function (response) {
-     console.log(response.json());
+//  fetch(req)
+//    .then(function (response) {
+//      console.log(response.json());
      
-    })
-    .then(function (newsJson) {
-    //.then(function (newsJson) {
-     //console.log(JSON.stringify(myJson));
-     newsData = newsJson
-      console.log(hello);
-     //.then(function (response) {
-      newsData.forEach(function (element) {
-        console.log(newsJson)
-        newDiv = $("<div>");
-        newDiv.addClass("individual-news-container");
-        newDiv.append("<p>Rating: " + element.content + "</p>");
-        var newImage = $("<img src = '" + element.urlToImage + "'>");
-        newImage.addClass("news-image");
-        newImage.attr("state", "still");
-        newImage.attr("still-data", element.images.fixed_height_still.url);
-        newImage.attr("animated-data", element.images.fixed_height.url);
-        newDiv.append(newImage);
-        $("#newsInfo").append(newDiv);
-      });
-    });
-  // });
+//     })
+//     .then(function (newsJson) {
+//     //.then(function (newsJson) {
+//      //console.log(JSON.stringify(myJson));
+//      newsData = newsJson
+//       console.log(hello);
+//      //.then(function (response) {
+//       newsData.forEach(function (element) {
+//         console.log(newsJson)
+//         newDiv = $("<div>");
+//         newDiv.addClass("individual-news-container");
+//         newDiv.append("<p>Rating: " + element.content + "</p>");
+//         var newImage = $("<img src = '" + element.urlToImage + "'>");
+//         newImage.addClass("news-image");
+//         newImage.attr("state", "still");
+//         newImage.attr("still-data", element.images.fixed_height_still.url);
+//         newImage.attr("animated-data", element.images.fixed_height.url);
+//         newDiv.append(newImage);
+//         $("#newsInfo").append(newDiv);
+//       });
+//     });
+//   // });
 
    
 
@@ -160,17 +160,17 @@ $('#submitCitation3').on("click", function (event) {
 
 
 
-// var coll = document.getElementsByClassName("collapsible");
-// var i;
+// // var coll = document.getElementsByClassName("collapsible");
+// // var i;
 
-// for (i = 0; i < coll.length; i++) {
-//   coll[i].addEventListener("click", function () {
-//     this.classList.toggle("active");
-//     var content = this.nextElementSibling;
-//     if (content.style.maxHeight) {
-//       content.style.maxHeight = null;
-//     } else {
-//       content.style.maxHeight = content.scrollHeight + "px";
-//     }
-//   });
-// }
+// // for (i = 0; i < coll.length; i++) {
+// //   coll[i].addEventListener("click", function () {
+// //     this.classList.toggle("active");
+// //     var content = this.nextElementSibling;
+// //     if (content.style.maxHeight) {
+// //       content.style.maxHeight = null;
+// //     } else {
+// //       content.style.maxHeight = content.scrollHeight + "px";
+// //     }
+// //   });
+// // }
