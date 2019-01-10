@@ -9,7 +9,7 @@
     background-color:transparent;
     margin-top:20px;
 }
-/* test for push to master */
+
 #issueInputForm{
     border:double;
     padding:10px;
@@ -101,6 +101,7 @@ nav {
 }
 
 /*End of Code for google maps and contact us page*/
+
 /*Start of code for News page */
 .collapsible {
     background-color: #777;
@@ -196,8 +197,16 @@ h5{
     background-color:green;
 }
 
-.blackFooter{
-    background-color:black;
-    opacity:.85;
-    padding:15px;
+
+
+/* news css changes */
+
+#news-description{
+    font-size: 14px;
+}
+
+#newsH3{
+    color: dimgray;
+    font-style: italic;
+
 }

@@ -29,7 +29,7 @@
 
 <body>
 
-<!-- this is a test -->
+
   <div class="container">
     <div class="jumbotron jumbotron-fluid" id="jumbo">
       <div class="container">
@@ -42,36 +42,49 @@
 
     <nav>
       <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="pay.html">Pay Ticket</a></li>
-            <li><a href="contact.html">Contact</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
     </nav>
     <h1 style="color:black;">Contact Us!<br>
     </h1>
-   
+    <div class="container">
+      <section id="contact">
+        <div class="container" id="contactUsForm">
+          <div class="well well-sm">
+            <h3"><strong>Where to pay my parking citation?</strong></h3>
+          </div>
 
-        <div class="container" style="margin-bottom:30px">
-          <section id="contact" style="background-color:black; color:white; opacity:.85;">
+          <div class="row">
+            <div class="col-md-7">
+              <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=where%20to%20pay%20parking%20tickets%20in%20california&key=AIzaSyC1Jknnvefop1DZaBbAy0fy42S1tiq7Obo"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        </div><br>
+
+        <div class="container">
+          <section id="contact">
             <div class="container" id="contactUsForm">
-              <div class="well well-sm transparentB" style="border:none;" >
-                <div class="col-md-5" style="padding-bottom:40px;">
+              <div class="well well-sm">
+                <div class="col-md-5">
                   <h4><strong>Get in Touch</strong></h4>
-                  <form>
+                  <form action="https://formspree.io/freddyt5371@gmail.com" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control" name="" value="" placeholder="Name">
+                      <input type="text" class="form-control" name="name" id="contactName" value="" placeholder="Name">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+                      <input type="email" name="_replyto" class="form-control" id="contactEmail" value="" placeholder="E-mail">
                     </div>
                     <div class="form-group">
-                      <input type="tel" class="form-control" name="" value="" placeholder="Phone">
+                      <input type="tel" class="form-control" id="contactPhone" value="" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control" name="" rows="3" placeholder="Message"></textarea>
+                      <textarea class="form-control" id="contactMessage" rows="3" placeholder="Message"></textarea>
                     </div>
-                    <button class="btn btn-default" type="submit" name="button">
-                      <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit
-                    </button>
+                    <input type="submit" value="Send" id="contactSubmit" style='background-color:rgb(79, 69, 167);'>
+                    <!-- <button type="submit" value="send" class="btn btn-primary" id="contactSubmit" style='background-color:rgb(79, 69, 167);'>Submit</button> -->
                     <br>
                   </form>
                 </div>
@@ -81,59 +94,8 @@
         </div>
 
     </div>
-
-    <div class="photosOfUs">
-        
-      <div class="container" style="color:white; background:black; opacity:.85; z-index:4">
-              <a target="_blank" href="assets/keyanna.jpg">
-                  <img src="assets/keyanna.jpg" alt="Keyanna Xu" width="auto" height="250px" style="float:left; z-index: 1; padding-right:30px;">
-              </a>
-          <h3>Keyanna just began her coding career in 2018. Since having her daughter (pictured in
-          photo) in 2016, she has had the urge to enter the technology field with hopes that she may one day be able
-          (and skilled enough) to work from home and spend more time with her family on a day-to-day-basis. She has a
-          BA from UC Irvine in International Finance and is currently working as a flight attendant for the World's
-          Largest Airline. She has a passion for travel, cultures, food, and technology and hopes to take this career
-          far in the decades to come!</h3></div>
-  </div>
-
-  <div class="gallery">
-      <a target="_blank" href="forest.jpg">
-          <img src="forest.jpg" alt="Forest" width="300" height="200">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-  </div>
-
-  <div class="gallery">
-      <a target="_blank" href="lights.jpg">
-          <img src="lights.jpg" alt="Northern Lights" width="300" height="200">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-  </div>
-
-  <div class="gallery">
-      <a target="_blank" href="mountains.jpg">
-          <img src="mountains.jpg" alt="Mountains" width="300" height="200">
-      </a>
-      <div class="desc">Add a description of the image here</div>
-  </div>
-
     <!-- java script -->
     <script src="assets/GroupProj.js"></script>
-
 </body>
-
-<!-- Footer -->
-<div class="container" style="margin-top:15px; float:left; width:100%; text-align:center;">
-  <footer class="page-footer font-small blue">
-  
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3 blackFooter" style="color:white">© 2018 Copyright:
-        <a href="https://freddyt53.github.io/GroupProject1/"> CitationStation.com</a>
-      </div>
-      <!-- Copyright -->
-    
-    </footer>
-    <!-- Footer -->
-    </div>
 
 </html>

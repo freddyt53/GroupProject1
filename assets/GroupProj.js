@@ -1,5 +1,5 @@
 //initialize firebase
-//test of push to master
+
 var config = {
   apiKey: "AIzaSyDs6mtbeyU8Jdc-qGhCv_uI134vsUEuq9Y",
   authDomain: "project1-83534.firebaseapp.com",
@@ -37,6 +37,10 @@ $('#submitCitation').on("click", function (event) {
   $("#citationNumberInput").val("");
   $("#stateOfCitation").val("");
   $("#licenseInput").val("");
+  $("#contactName").val("");
+  $("#contactEmail").val("");
+  $("#contactPhone").val("");
+  $("#contactMessage").val("");
 
   //keeps from refreshing page
   return false;
@@ -68,6 +72,73 @@ groupData.ref().on("child_added", function (childSnapshot) {
   //appends text to destination to display
   $("#dataList > tbody").append(newRow);
 });
+
+
+// // Initialize Firebase for contact page
+// var config = {
+//   apiKey: "AIzaSyDs6mtbeyU8Jdc-qGhCv_uI134vsUEuq9Y",
+//   authDomain: "project1-contactus.firebaseapp.com",
+//   databaseURL: "https://project1-contactus.firebaseio.com",
+//   projectId: "project1-contactus",
+//   storageBucket: "project1-contactus.appspot.com",
+//   messagingSenderId: "1007884050638"
+// };
+
+// var cdata = firebase.database();
+
+
+// 2. Button for adding contact information
+$("#contactSubmit").on("click", function(event) {
+  event.preventDefault();
+
+  // Grabs user input
+  var contactName = $("#contactName").val().trim();
+  var contactEmail = $("#contactEmail").val().trim();
+  var contactPhone = $("#contactPhone").val().trim();
+  var contactMessage = $("#contactMessage").val().trim();
+
+  // Creates local "temporary" object for holding contact info
+  var contactUs = {
+    name: contactName,
+    email: contactEmail,
+    phone: contactPhone,
+    message: contactMessage,
+  };
+
+  // Uploads contact info to the database
+  cdata.ref().push(contactUs);
+
+  // // Logs everything to console
+  // console.log(contactUs.name);
+  // console.log(contactUs.email);
+  // console.log(contactUs.phone);
+  // console.log(contactUs.message);
+
+  // // Clears all of the text-boxes
+  // $("#contactName").val("");
+  // $("#contactEmail").val("");
+  // $("#contactPhone").val("");
+  // $("#contactMessage").val("");
+});
+
+// // 3. Create Firebase event for adding to the database and a row in the html when a user adds an entry
+// database.ref().on("child_added", function(childSnapshot) {
+//   console.log(childSnapshot.val());
+
+//   // // Store everything into a variable.
+//   // var cName = childSnapshot.val().name;
+//   // var cEmail = childSnapshot.val().email;
+//   // var cPhone = childSnapshot.val().phone;
+//   // var cMessage = childSnapshot.val().message;
+
+//   //contact Info
+//   console.log(cName);
+//   console.log(cEmail);
+//   console.log(cPhone);
+//   console.log(cMessage);
+
+// });
+
 
 
 
@@ -112,65 +183,53 @@ $('#submitCitation3').on("click", function (event) {
 
 
 
+
 //news API
-var newsData = "";
+var news = '';
 
 
-// // //for the News page
-//  var newsApiKey = "c9952e074181464ea384595ef02c08bd";
+//for the News page
 
-//  var url = 'https://newsapi.org/v2/everything?' +
-//    'q=traffic+laws&' +
-//    'from=2019-01-08&' +
-//    'sortBy=popularity&' +
-//    'apiKey=c9952e074181464ea384595ef02c08bd';
+function callAPI() {
+  fetch(`https://newsapi.org/v2/everything?q=laws+traffic&from=2019-01-01&sortBy=popularity&apiKey=c9952e074181464ea384595ef02c08bd`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    // console.log(myJson.articles);
+    news = myJson.articles
+    // console.log(news)
+    console.log(news)
+  })
+  .then(function () {
+    appendNews();
+  });
+}
 
-//  var req = new Request(url);
+callAPI();
 
-//  fetch(req)
-//    .then(function (response) {
-//      console.log(response.json());
-     
-//     })
-//     .then(function (newsJson) {
-//     //.then(function (newsJson) {
-//      //console.log(JSON.stringify(myJson));
-//      newsData = newsJson
-//       console.log(hello);
-//      //.then(function (response) {
-//       newsData.forEach(function (element) {
-//         console.log(newsJson)
-//         newDiv = $("<div>");
-//         newDiv.addClass("individual-news-container");
-//         newDiv.append("<p>Rating: " + element.content + "</p>");
-//         var newImage = $("<img src = '" + element.urlToImage + "'>");
-//         newImage.addClass("news-image");
-//         newImage.attr("state", "still");
-//         newImage.attr("still-data", element.images.fixed_height_still.url);
-//         newImage.attr("animated-data", element.images.fixed_height.url);
-//         newDiv.append(newImage);
-//         $("#newsInfo").append(newDiv);
-//       });
-//     });
-//   // });
-
-   
+var appendNews = function () {
+  for (i = 0; i < news.length; i++) {
+    $('#newsInfo').append('<h3 id="newsH3">' + news[i].title + '</h3>' + '<p id="news-description">' + news[i].description + '</p>' + '<p>' + '<a href=' + news[i].url + '>' + 'Read More' + '</a>' + '</p>')
+    // console.log(news[i].author)
+  }
+}
 
 
 
 
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
 
-// // var coll = document.getElementsByClassName("collapsible");
-// // var i;
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function () {
+//     this.classList.toggle("active");
+//     var content = this.nextElementSibling;
+//     if (content.style.maxHeight) {
+//       content.style.maxHeight = null;
+//     } else {
+//       content.style.maxHeight = content.scrollHeight + "px";
+//     }
+//   });
+// }
 
-// // for (i = 0; i < coll.length; i++) {
-// //   coll[i].addEventListener("click", function () {
-// //     this.classList.toggle("active");
-// //     var content = this.nextElementSibling;
-// //     if (content.style.maxHeight) {
-// //       content.style.maxHeight = null;
-// //     } else {
-// //       content.style.maxHeight = content.scrollHeight + "px";
-// //     }
-// //   });
-// // }
