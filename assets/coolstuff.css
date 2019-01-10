@@ -195,3 +195,9 @@ h5{
 .greenButton{
     background-color:green;
 }
+
+.blackFooter{
+    background-color:black;
+    opacity:.85;
+    padding:15px;
+}
