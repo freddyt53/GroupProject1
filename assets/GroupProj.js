@@ -1,5 +1,5 @@
 //initialize firebase
-
+//test of push to master
 var config = {
   apiKey: "AIzaSyDs6mtbeyU8Jdc-qGhCv_uI134vsUEuq9Y",
   authDomain: "project1-83534.firebaseapp.com",
