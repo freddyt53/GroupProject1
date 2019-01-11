@@ -106,11 +106,7 @@ $("#contactSubmit").on("click", function(event) {
   };
 
   // Uploads contact info to the database
-<<<<<<< HEAD
   cdata.ref().push(contactUs);
-=======
-  data.ref().push(contactUs);
->>>>>>> master
 
   // // Logs everything to console
   // console.log(contactUs.name);
@@ -118,19 +114,11 @@ $("#contactSubmit").on("click", function(event) {
   // console.log(contactUs.phone);
   // console.log(contactUs.message);
 
-<<<<<<< HEAD
-  // // Clears all of the text-boxes
-  // $("#contactName").val("");
-  // $("#contactEmail").val("");
-  // $("#contactPhone").val("");
-  // $("#contactMessage").val("");
-=======
   // Clears all of the text-boxes
   $("#contactName").val("");
   $("#contactEmail").val("");
   $("#contactPhone").val("");
   $("#contactMessage").val("");
->>>>>>> master
 });
 
 // // 3. Create Firebase event for adding to the database and a row in the html when a user adds an entry
