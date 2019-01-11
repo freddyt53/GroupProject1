@@ -88,7 +88,7 @@ groupData.ref().on("child_added", function (childSnapshot) {
 
 
 // 2. Button for adding contact information
-$("#contactSubmit").on("click", function(event) {
+$("#contactSubmit").on("click", function (event) {
   event.preventDefault();
 
   // Grabs user input
@@ -192,25 +192,25 @@ var news = '';
 
 function callAPI() {
   fetch(`https://newsapi.org/v2/everything?q=laws+traffic&from=2019-01-01&sortBy=popularity&apiKey=c9952e074181464ea384595ef02c08bd`)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (myJson) {
-    // console.log(myJson.articles);
-    news = myJson.articles
-    // console.log(news)
-    console.log(news)
-  })
-  .then(function () {
-    appendNews();
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (myJson) {
+      // console.log(myJson.articles);
+      news = myJson.articles
+      // console.log(news)
+      console.log(news)
+    })
+    .then(function () {
+      appendNews();
+    });
 }
 
 callAPI();
 
 var appendNews = function () {
   for (i = 0; i < news.length; i++) {
-    $('#newsInfo').append('<h3 id="newsH3">' + news[i].title + '</h3>' + '<p id="news-description">' + news[i].description + '</p>' + '<p>' + '<a href=' + news[i].url + '>' + 'Read More' + '</a>' + '</p>')
+    $('#newsInfo').append('<h3 id="newH3">' + news[i].title + '</h3>' + '<p id="news-description">' + news[i].description + '</p>' + '<p>' + '<a href=' + news[i].url + '>' + 'Read More' + '</a>' + '</p>')
     // console.log(news[i].author)
   }
 }

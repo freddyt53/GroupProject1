@@ -205,8 +205,6 @@ h5{
     font-size: 14px;
 }
 
-<<<<<<< HEAD
-=======
 
 /* news css changes */
 
@@ -214,13 +212,8 @@ h5{
     font-size: 14px;
 }
 
->>>>>>> master
-#newsH3{
-    color: dimgray;
+#newH3{
+    color: rgb(121, 121, 121);
     font-style: italic;
+}
 
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> master
